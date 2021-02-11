@@ -4,6 +4,7 @@ from IPython.display import display
 from IPython.display import clear_output
 import matplotlib.pyplot as plt
 import copy as cp
+from math import sqrt
 from mpl_toolkits.mplot3d import Axes3D
 
 #мн-во образов
