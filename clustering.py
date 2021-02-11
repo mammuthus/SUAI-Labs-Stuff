@@ -66,7 +66,7 @@ def dclose(a,b,method,h=False):
     return min(ds)
 
 #кластеризация методом слияния
-def claster(data,m1,m2,k,h=False):
+def cluster(data,m1,m2,k,h=False):
     n = len(data) #начальное кол-во кластеров
 
     #все элементы принадлежат разным кластерам
@@ -225,7 +225,7 @@ def on_change(btn):
         dataset = normalize(dataset)
     if(w):
         h = weights(dataset)
-    cls = claster(dataset,m1,m2,size,h)
+    cls = cluster(dataset,m1,m2,size,h)
     print('Результат кластеризации:')
     paint3d(cls,alpha.value,beta.value)
  
