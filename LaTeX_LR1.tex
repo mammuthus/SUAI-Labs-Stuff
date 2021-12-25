@@ -1,0 +1,322 @@
+\documentclass[a4paper]{article}
+\usepackage{soulutf8}
+\usepackage[14pt]{extsizes}
+\usepackage[utf8]{inputenc}
+\usepackage[english, german, latin, russian]{babel}
+\usepackage{graphicx}
+\usepackage{setspace,amsmath}
+\usepackage{blindtext}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{hyperref}
+
+\usepackage[left=20mm, top=15mm, right=15mm, bottom=15mm, nohead, footskip=10mm]{geometry}
+\parindent = 0cm
+\graphicspath{ {/Users/omavel/My Drive/Магистратура/ИБ/images} } 
+\newcommand{\cbox}[2][green]{%
+  \colorbox{#1}{\parbox{\dimexpr\linewidth-2\fboxsep}{\strut #2\strut}}%
+}
+\lstset{extendedchars=\true,keepspaces=true,
+basicstyle=\ttfamily,columns=flexible,
+escapechar=$,escapebegin=\[,escapeend=\]
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\color{codegray},
+    stringstyle=\color{codepurple},
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                        
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+\begin{document}
+\begin{center}
+\hfill \break
+\small{МИНИСТЕРСТВО ОБРАЗОВАНИЯ И НАУКИ РОССИЙСКОЙ ФЕДЕРАЦИИ}\\
+\footnotesize{федеральное государственное автономное образовательное учреждение высшего}\\ 
+\footnotesize{образования}\\
+\small{«САНКТ-ПЕТЕРБУРГСКИЙ ГОСУДАРСТВЕННЫЙ УНИВЕРСИТЕТ АЭРОКОСМИЧЕСКОГО ПРИБОРОСТРОЕНИЯ»}\\
+\hfill \break
+\small{\textbf{КАФЕДРА ВЫЧИСЛИТЕЛЬНЫХ СИСТЕМ И СЕТЕЙ}}\\
+\hfill \break
+\hfill \break
+\hfill \break
+\hfill \break
+\end{center}
+\normalsize{ОЦЕНКА\\
+ПРЕПОДАВАТЕЛЬ}\\\\
+\begin{tabular}{c c c}
+\underline{\hspace{0.8cm}доц., к.т.н., доц.\hspace{0.8cm}} & \underline{\hspace{1cm} \phantom{ц baseline hack} } & \underline{\hspace{0.8cm}В.С. Коломойцев\hspace{0.8cm}} \\
+\hfill\break
+\footnotesize{должность, уч. степень, звание} & \footnotesize{подпись, дата} & \footnotesize{инициалы, фамилия}\\\\
+\end{tabular}\\
+\hfill \break
+\hfill \break
+\begin{center}
+\normalsize{ОТЧЕТ О ЛАБОРАТОРНОЙ РАБОТЕ №1\\
+\hfill \break
+Методы и способы работы с редакторами\\
+\hfill \break
+По дисциплине: Безопасность и защита информации\\
+в информационных системах}\\
+\hfill \break
+\hfill \break
+\end{center}
+\begin{tabular}{l c c c}
+РАБОТУ ВЫПОЛНИЛ\\
+СТУДЕНТ ГР. & \ul{  Z0440M  } & \ul{  25.12.2021  } & \underline{\hspace{0.4cm}Д.А. Митрофанов\hspace{0.4cm}}\\
+\hfill\break
+\end{tabular}\hfill \break
+\hfill \break
+\hfill \break
+\hfill \break
+\hfill \break
+\hfill \break
+\begin{center}Санкт-Петербург 2021 \end{center}
+\thispagestyle{empty}
+\newpage
+
+\section{Цель работы}
+Изучить методы анализа, форматирования и хранения текстовой, графической и иной мультимедийной информации.
+\section{Работа с языком \TeX в редакторе \LaTeX}
+
+\subsection{Текст разного кегля и на разных языках}
+\subsubsection{Разные кегли}
+Основой размер (кегль) шрифта определяется классом документа. 
+Кегль текстового фрагмента можно изменить пропорционально, использовав соответствующие теги:
+\begin{center}
+\renewcommand{\arraystretch}{2}
+\begin{tabular}{l l}
+
+\begin{lstlisting}[language=TeX]
+\tiny
+\end{lstlisting} & \tinyТрехчастная фактурная форма позиционирует контрапункт контрастных фактур\\
+
+\begin{lstlisting}[language=TeX]
+\scriptsize
+\end{lstlisting} & \scriptsizeСкалярное поле иногда может отображать перекрестный сходящийся ряд\\
+
+\begin{lstlisting}[language=TeX]
+\footnotesize
+\end{lstlisting} & \footnotesizeМетод последовательных приближений регрессийно искажает форшлаг\\
+
+\begin{lstlisting}[language=TeX]
+\small
+\end{lstlisting} & \smallБанкротство даёт большую проекцию на оси, чем акционерный суд\\
+
+\begin{lstlisting}[language=TeX]
+\normalsize
+\end{lstlisting} & \normalsizeИзлучение ментально индуцирует гамма-квант Ориона\\
+
+\begin{lstlisting}[language=TeX]
+\large
+\end{lstlisting} & \largeСтруктурализм испускает этиловый интеллект\\
+
+\begin{lstlisting}[language=TeX]
+\Large
+\end{lstlisting} & \LargeПарадигма дает субсветовой аутотренинг\\
+
+\begin{lstlisting}[language=TeX]
+\LARGE
+\end{lstlisting} & \LARGEСовременная критика иллюзорна\\
+
+\begin{lstlisting}[language=TeX]
+\huge
+\end{lstlisting} & \hugeОбразование амбивалентно\\
+
+\begin{lstlisting}[language=TeX]
+\Huge
+\end{lstlisting} & \HugeБхутавада вероятна\\
+
+\hfill\break
+\end{tabular}
+\end{center}
+\subsubsection{Вставки на других языках}
+Текстовые вставки на разных языках обеспечиваются подключением соответствующих пакетов помощью 
+\begin{lstlisting}[language=TeX]
+\usepackage[language]{babel}
+\end{lstlisting}
+\thispagestyle{empty}
+\newpage
+При использовании нескольких языков, они задаются через запятую:
+\begin{lstlisting}[language=TeX]
+\usepackage[english, german, latin, russian]{babel}
+\end{lstlisting}\hfill\break
+Пакет babel позволяет отображать специальные символы алфавита, а так же автоматически переводит структурные элементы документа. 
+
+Например, ниже был выведен текст-рыба через 
+\begin{lstlisting}[language=TeX]
+\selectlanguage{german}
+\begin{abstract}
+\blindtext
+\end{abstract}
+\end{lstlisting}
+\cbox[lightgray!90]{
+\selectlanguage{german}
+\begin{abstract}
+\blindtext
+\end{abstract}
+}
+\selectlanguage{russian} \\
+При указании latin в selectlanguage заголовок также локализируется:\\
+\cbox[lightgray!90]{
+\selectlanguage{latin}
+\begin{abstract}
+\blindtext
+\end{abstract}
+}
+\selectlanguage{russian}
+
+Некоторые пакеты (как, например, blindtext для генерации рыбы) поддерживают изменение языка.\\
+Для возврата к исходному языку: 
+\begin{lstlisting}[language=TeX]
+\selectlanguage{russian} 
+\end{lstlisting}
+\thispagestyle{empty}
+\newpage
+\subsection{Рисунки и таблицы}
+\subsubsection{Рисунки}
+Для вставки изображений может использоваться пакет graphicx.
+Удобно с самого начала задать директорию по умолчанию, где хранятся изображения:
+\begin{lstlisting}[language=TeX] 
+\graphicspath{{./images/}} 
+\end{lstlisting}
+и вызывать их по относительным ссылкам через
+\begin{lstlisting}[language=TeX] 
+\includegraphics{universe}
+\end{lstlisting} 
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\textwidth]{poster-closeup.jpeg}
+    \caption{Пример вставки изображения в \LaTeX}
+    \label{fig:mesh1}
+\end{figure}
+
+Масштаб отображения картинки может быть задан параметром scale, либо динамически, например, в зависимости от ширины текста в документе (как в приведенном примере на Рисунке \ref{fig:mesh1}): \begin{lstlisting}[language=TeX] 
+\includegraphics[width=\textwidth]{poster-closeup.jpeg}
+\end{lstlisting}
+\thispagestyle{empty}
+\newpage
+\subsubsection{Таблицы}
+\LaTeX позволяет создавать сложные таблицы с различными параметрами выравнивания текста внутри ячеек, с настройкой ширины столбцов и разделителей.
+\hfill\break
+\\Параметры столбца: c — выравнивание содержимого по центру, r — по правому краю, l — по левому, p — столбец заданной ширины, | — разделители.
+Чтобы прочертить линии между строками используют команду hline. Для того, чтобы объединить ячейки нескольких столбцов используют multicolumn. \\
+\hfill\break
+\begin{tabular}{ |p{4cm}|p{4cm}|p{4cm}|  }
+\hline
+\multicolumn{3}{|c|}{Country List} \\
+\hline
+Country Name & ISO ALPHA 2 & ISO ALPHA 3 \\
+\hline
+Afghanistan & AF & AFG \\
+Aland Islands & AX & ALA \\
+Albania & AL & ALB \\
+\hline
+\end{tabular}
+\hfill\break
+\\Исходный код:
+\begin{lstlisting}[language=TeX] 
+\begin{tabular}{ |p{4cm}|p{4cm}|p{4cm}|  }
+\hline
+\multicolumn{3}{|c|}{Country List} \\
+\hline
+Country Name & ISO ALPHA 2 & ISO ALPHA 3 \\
+\hline
+Afghanistan & AF & AFG \\
+Aland Islands & AX & ALA \\
+Albania & AL & ALB \\
+\hline
+\end{tabular}
+\end{lstlisting}
+\thispagestyle{empty}
+\newpage
+\subsection{Библиографическое описание и ссылки}
+
+Для демонстрации работы библиографического описания в \LaTeX, приведу фрагмент из статьи \emph{Early assessment of the clinical severity of the SARS-CoV-2 Omicron variant in South Africa doi: https://doi.org/10.1101/2021.12.21.21268116}:
+\\
+\\
+\cbox[lightgray!90]{On 24 November 2021, the Network for Genomics Surveillance of South Africa (NGS-SA) reported a new variant of SARS-CoV-2 which had been detected from specimens collected on 14 November 2021 in South Africa, originally assigned to the lineage B.1.1.529 \cite{NatInstitute}. The WHO, on the recommendation of the Technical Advisory Group on SARS-CoV-2 Virus Evolution, designated B.1.1.529 as Omicron \cite{WHO}, the fifth VOC, on 26th November 2021}
+\\\\
+Список ссылок необходимо составить заранее, задав для каждого референса уникальный индекс. В данном случае использовался следующий код:
+\begin{lstlisting}[language=TeX]
+\begin{thebibliography}{5}
+\bibitem{NatInstitute}
+National Institute for Communicable Diseases 
+\emph{COVID19 Wkly. Epidemiol. BRIEF, WEEK 48 2021} 
+https://www.nicd.ac.za/wpcontent/uploads/2021/12/COVID-
+19-Weekly-Epidemiology-Brief-week-48-2021.pdf 
+(accessed Dec 9, 2021)
+\bibitem{WHO}
+World Health Organization. \emph{Classification of Omicron 
+(B.1.1.529): SARS-CoV-2 Variant of
+Concern} https://www.who.int/news/item/26-11-2021-
+classification-of-omicron-(b.1.1.529)-
+sars-cov-2-variant-of-concern (accessed Dec 10, 2021)
+\end{thebibliography}
+\end{lstlisting}
+
+Ссылки вставляются в текст через директиву cite с указанием индекса:
+\begin{lstlisting}[language=TeX]
+\cite{NatInstitute}
+\end{lstlisting}
+\thispagestyle{empty}
+\newpage
+Сгенерированный библиографический список выглядит так:\\\\
+\selectlanguage{english} 
+\cbox[lightgray!90]{
+\begin{thebibliography}{5}
+\bibitem{NatInstitute}
+National Institute for Communicable Diseases \emph{COVID19 Wkly. Epidemiol. BRIEF, WEEK 48 2021} https://www.nicd.ac.za/wpcontent/uploads/2021/12/COVID-19-Weekly-Epidemiology-Brief-week-48-2021.pdf (accessed Dec 9, 2021)
+\bibitem{WHO}
+World Health Organization. \emph{Classification of Omicron (B.1.1.529): SARS-CoV-2 Variant of
+Concern} https://www.who.int/news/item/26-11-2021-classification-of-omicron-(b.1.1.529)-
+sars-cov-2-variant-of-concern (accessed Dec 10, 2021)
+\end{thebibliography}
+}
+\selectlanguage{russian} 
+
+На русском языке ссылки на литературу встраиваются абсолютно так же.\\
+Пример подобной ссылки:\\\\
+\cbox[lightgray!90]{Особенностью метода Фибоначчи является возможность экономить
+дорогостоящие вычисления целевой функции f(x). Действительно, начиная со
+второго шага, значение функции в точке c известно с предыдущего шага, поэтому
+остаётся вычислить только значение в отраженной точке x\cite{Opt}}
+\hfill\break
+И результат работы thebibliography:\\\\
+\cbox[lightgray!90]{
+\begin{thebibliography}{5}
+\bibitem{Opt}
+Оптимальное управление, Галеев Э.М., Зеликин М.И., Конягин С.В. и др.\emph{Московский Центр Непрерывного Математического Образования
+ (МЦНМО), 2008.}
+ \end{thebibliography}
+}
+\thispagestyle{empty}
+\newpage
+\subsection{Сноски}
+Для введения сносок применяется директива footnote, которая может принимать один или два параметра: текст сноски и индекс.\\\\
+Для демонстрации я воспроизвел фрагмент статьи \emph{\href{https://artguide.com/posts/1251}{Конверсия ошибки: глитч-арт в компьютерных играх (Алина Латыпова)}}. Фрагмент умышленно взят из середины статьи, поэтому нумерация сносок начинается не с единицы. \\Текст внутри сносок воспроизведен "как есть".\\
+
+\emph{Если обратиться к классификации английского исследователя цифрового искусства Имана Моради\footnote[16]{Обращение к предложенной классификации обусловлено не столько ее оригинальностью, сколько систематичностью. Исследователем рассмотрены и распределены по группам наиболее часто встречающиеся типы проектов в стиле глитч-арт. Подробнее см.: Moradi I. Seeking Perfect Imperfection. A personal retrospective on Glitch Art // Vector. Vol. 6. Errors and glitches. July 2008. URL: http://virose.pt/vector/x\_06/moradi.html (дата обращения: 17.06.2016).}, глитч-арт можно разделить на «чистый» и «глитч-подобный». Или: естественный\footnote[17]{«Естественность» в данном случае означает сообразность с игровой средой. То, что логично вписывается в цифровую среду, является естественным для нее.} и рукотворный. Естественный глитч-арт представляет собой сбои в коде, изображениях и другие баги, возникающие в ходе исполнения программы, которые заметил и зафиксировал художник. В то время как рукотворный глитч-арт — это намеренное искажение (модификация) медиаконтента\footnote[18]{Существует множество обучающих материалов по глитч-арту, а также специальные онлайн-сервисы, предлагающие преобразовать загружаемые данные в файл в стиле глитч-арта. В качестве примера можно назвать сервис Image Glitch Tool. URL: https://snorpey.github.io/jpg-glitch (дата обращения: 17.06.2016).} }\\\\
+\hfill\break
+Код (содержимое сносок сокращено):\\
+\begin{lstlisting}[language=TeX]
+ Если обратиться к классификации английского исследователя цифрового 
+ искусства Имана Моради\footnote[16]{...}, глитчарт можно 
+ разделить на «чистый» и «глитч подобный». Или: 
+ естественный\footnote[17]{...} и рукотворный. Естественный глитчарт 
+ представляет собой сбои в коде, изображениях и другие баги, 
+ возникающие в ходе исполнения программы, которые заметил 
+ и зафиксировал художник. В то время как рукотворный глитч арт  
+ это намеренное искажение (модификация) медиаконтента\footnote[18]{...}
+\end{lstlisting}
+\thispagestyle{empty}
+\newpage
+\section{Выводы}
+Были изучены методы анализа, форматирования и хранения текстовой, графической и иной информации, кодирование разметки в нотации \TeX с использованием редактора \TeX Shop. Отчет был сверстан в \TeX, исходный код доступен \href{https://artguide.com/posts/1251}{по ссылке}
+\end{document}
