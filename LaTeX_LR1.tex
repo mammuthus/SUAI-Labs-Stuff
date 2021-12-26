@@ -87,7 +87,7 @@ language=[LaTeX]{TeX}
 \section{Цель работы}
 Изучить методы анализа, форматирования и хранения текстовой, графической и иной мультимедийной информации.
 \section{Работа с языком \TeX в редакторе \LaTeX}
-
+Для демонстрации работы с \TeX \hspace{0.1cm} была выбрана имплементация языка \LaTeX \hspace{0.1cm} \\и редактор \TeX Shop
 \subsection{Текст разного кегля и на разных языках}
 \subsubsection{Разные кегли}
 Основой размер (кегль) шрифта определяется классом документа. 
@@ -136,14 +136,15 @@ language=[LaTeX]{TeX}
 		\Huge
 		\end{lstlisting} & \HugeБхутавада вероятна                                                                                                        \\
 \end{tabular}
+\thispagestyle{empty}
 
+\newpage
 \subsubsection{Вставки на других языках}
 Текстовые вставки на разных языках обеспечиваются подключением соответствующих пакетов помощью usepackage:
 \begin{lstlisting}
 \usepackage[language]{babel}
 \end{lstlisting}
-\thispagestyle{empty}
-\newpage
+
 При использовании нескольких языков, они задаются через запятую:
 \begin{lstlisting}
 \usepackage[english, german, latin, russian]{babel}
@@ -163,7 +164,7 @@ language=[LaTeX]{TeX}
 	\end{abstract}
 }
 \selectlanguage{russian} \\
-При указании \lstinline{latin} в секции \lstinline{selectlanguage} заголовок также локализируется:\\
+При указании \lstinline{latin} в секции \lstinline{selectlanguage} заголовок локализируется. Некоторые пакеты (как, например, \lstinline{blindtext}) поддерживают изменение языка для содержимого:\\
 \cbox[lightgray!20]{
 	\selectlanguage{latin}
 	\begin{abstract}
@@ -171,13 +172,8 @@ language=[LaTeX]{TeX}
 	\end{abstract}
 }
 \selectlanguage{russian}
-
-Некоторые пакеты (как, например, \lstinline{blindtext} для генерации рыбы) поддерживают изменение языка.\\
-Для возврата к исходному языку: 
-\begin{lstlisting}
-\selectlanguage{russian} 
-\end{lstlisting}
 \thispagestyle{empty}
+
 \newpage
 \subsection{Рисунки и таблицы}
 \subsubsection{Рисунки}
@@ -188,7 +184,7 @@ language=[LaTeX]{TeX}
 \end{lstlisting}
 и вызывать их по относительным ссылкам через
 \begin{lstlisting} 
-\includegraphics{universe}
+\includegraphics{picture}
 \end{lstlisting} 
 \begin{figure}[h]
 	\centering
@@ -325,7 +321,71 @@ sars-cov-2-variant-of-concern (accessed Dec 10, 2021)
  намеренное искажение (модификация) медиаконтента\footnote[18]{...}
 \end{lstlisting}
 \thispagestyle{empty}
+
+\newpage
+\section{Работа в мультимедийном редакторе}
+Для демонстрации работы с мультимедиа был выбран пакет Audicity, предназначенный для записи и редактирования звуковых файлов.
+\subsection{Постобработка}
+\subsubsection{Нормировка и компрессор}
+
+После записи голосового сэмпла необходимо прослушать аудиодорожку и очистить ее от резких шумов. На этом этапе можно отредактировать запись, удалив долгие паузы между словами или добавив паузы там, где они нужны.
+Для добавления пауз использовалась функция \lstinline{заполнить тишиной}:\\
+\begin{figure}[h]
+	\centering
+	\includegraphics[scale=0.75]{aud1.png}
+	\caption{Функция «заполнить тишиной»}
+	\label{fig:mesh2}
+\end{figure}\\
+При записи на встроенную звуковую плату, сопротивление микрофона (импеданс) может не соответствовать характеристикам платы. В результате, запись может показаться слишком тихой. Для устранения этого недостатка, используется \lstinline{нормировка сигнала}. \\
+\begin{figure}[h]
+	\centering
+	\includegraphics[scale=0.75]{aud2.png}
+	\caption{Нормировка сигнала}
+	\label{fig:mesh3}
+\end{figure}
+\thispagestyle{empty}
+
+\newpage
+Для устранения перепадов громкости поможет функция \lstinline{компрессор динамического диапазона}:
+\begin{figure}[h]
+	\centering
+	\includegraphics[scale=0.45]{aud3.png}
+	\caption{Компрессор динамического диапазона}
+	\label{fig:mesh4}
+\end{figure}
+\subsubsection{Эквалайзер и шумоподавление}
+После компрессора, уровень выходного сигнала стал более равномерным, но голос слишком приглушен. Для его озвончения можно воспользоваться эквалайзером, подняв уровень сигнала для типичных для человеческой речи частот и понизив для остальных.
+\begin{figure}[h]
+	\centering
+	\includegraphics[scale=0.5]{aud4.png}
+	\caption{Эквалайзер}
+	\label{fig:mesh5}
+\end{figure}
+\thispagestyle{empty}
+
+\newpage
+Эффективное подавление шумов обеспечивается созданием модели шума с помощью \lstinline{Noise Reduction}. Для этого нужно выделить фрагмент записи, где слышен только шум окружения и выбрать \lstinline{создать модель шума}:
+\begin{figure}[h]
+	\centering
+	\includegraphics[scale=0.45]{aud5.png}
+	\caption{Создание модели шума}
+	\label{fig:mesh6}
+\end{figure}
+\\При частоте сэмплирования 44100Гц, необходимо выделить не менее 2048 выборок, т.е. не менее 0,05 секунд записи фонового шума. Параметр \lstinline{Noise reduction} влияет на степень фильтрации. Высокое значение фильтрации может исказить полезные данные, поэтому устанавливать эти параметры нужно опытным путем, используя кнопку \lstinline{прослушать}.
+
+\subsection{Экспорт файла}
+Для записи голоса было бы достаточно экспортировать проект в mp3-файл с битрейтом 192 кбит/с, но т.к. накладные расходы при кодировании на современном аппаратном обеспечении крайне малы, я использовал максимально возможный для mp3 битрейт – 320 кбит/с.
+\begin{figure}[h]
+	\centering
+	\includegraphics[scale=0.5]{aud6.png}
+	\caption{Параметры экспорта}
+	\label{fig:mesh7}
+\end{figure}
+
+\thispagestyle{empty}
 \newpage
 \section{Выводы}
-Были изучены методы анализа, форматирования и хранения текстовой, графической и иной информации, кодирование разметки в нотации \TeX с использованием редактора \TeX Shop. Отчет был сверстан в \TeX, код доступен \href{https://github.com/mammuthus/SUAI-Stuff/blob/main/LaTeX_LR1.tex}{по ссылке}.
+Были продемонстрированы методы анализа, форматирования и хранения текстовой и иной информации, кодирование разметки в нотации \TeX с использованием редактора \TeX Shop, а так же работа с мультимедиа (аудио) в пакете Audacity. 
+Отчет был сверстан в \TeX, код доступен \href{https://github.com/mammuthus/SUAI-Stuff/blob/main/LaTeX_LR1.tex}{по ссылке}.
+\thispagestyle{empty}
 \end{document}
